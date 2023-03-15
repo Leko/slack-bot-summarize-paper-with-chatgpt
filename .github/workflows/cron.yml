@@ -1,6 +1,8 @@
 name: Scheduled Run
 
 on:
+  workflow_dispatch:
+    inputs: {}
   schedule:
     # 8:30am JST
     - cron: "30 23 * * *"
