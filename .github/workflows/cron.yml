@@ -21,4 +21,4 @@ jobs:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
           SLACK_INCOMING_WEBHOOK_URL: ${{ secrets.SLACK_INCOMING_WEBHOOK_URL }}
           PROMPT_PREFIX: "あなたは医療データの標準化に精通したリサーチャーです。以下の論文の要旨とOMOP CDMがどう活用 されたか説明してください。OMOP CDMについての説明は不要です"
-          PUBMED_QUERY: "OMOP"
+          PUBMED_QUERY: "OHDSI or OMOP"
