@@ -20,5 +20,20 @@ jobs:
         env:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
           SLACK_INCOMING_WEBHOOK_URL: ${{ secrets.SLACK_INCOMING_WEBHOOK_URL }}
-          PROMPT_PREFIX: "あなたは医療データの標準化に精通したリサーチャーです。以下の論文の要旨とOMOP CDMがどう活用 されたか説明してください。OMOP CDMについての説明は不要です"
+          PROMPT_PREFIX: "あなたは医療データの標準化に精通したリサーチャーです。以下の論文の要旨とその中でOMOP CDMがどう活用されたか説明してください。OMOP CDMについての説明は不要です"
+          PUBMED_QUERY: "OHDSI or OMOP"
+  poc-for-ohdsi-japan:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: 18
+          cache: npm
+      - run: npm ci
+      - run: npm run main
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          SLACK_INCOMING_WEBHOOK_URL: ${{ secrets.SLACK_INCOMING_WEBHOOK_URL_OHDSI_JAPAN }}
+          PROMPT_PREFIX: "あなたは医療データの標準化に精通したリサーチャーです。以下の論文の要旨とその中でOMOP CDMがどう活用されたか説明してください。OMOP CDMについての説明は不要です"
           PUBMED_QUERY: "OHDSI or OMOP"
